@@ -15,6 +15,7 @@ class ATM:
                 user="postgres", 
                 password="romero-vieira", 
                 host="localhost",
+                port=5432,
                 options=f"-c search_path=public")
         cur = conn.cursor()
         return conn, cur
