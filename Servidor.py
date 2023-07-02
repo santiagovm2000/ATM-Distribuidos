@@ -3,7 +3,7 @@ import Pyro4
 import random
 import subprocess
 
-subprocess.Popen(['pyro4-ns'])
+subprocess.Popen(['/usr/bin/pyro4-ns'])
 
 @Pyro4.expose
 class ATM:
