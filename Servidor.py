@@ -3,7 +3,7 @@ import Pyro4
 import random
 import subprocess
 
-subprocess.Popen(['/usr/bin/pyro4-ns'])
+subprocess.Popen(['pyro4-ns'])
 
 @Pyro4.expose
 class ATM:
@@ -175,15 +175,19 @@ class ATM:
         else:
             return None
 
-# crear instancia de la clase ATM que deseas registrar como objeto remoto
+
 atm = ATM()
 
-# registrar el objeto remoto con el servidor de nombres Pyro4
-daemon = Pyro4.Daemon()
-uri = daemon.register(atm)
-ns = Pyro4.locateNS()
-ns.register("atm", uri)
+try:
 
-# iniciar el servidor para aceptar solicitudes de los clientes
-print("ATM server ready.")
-daemon.requestLoop()
+    daemon = Pyro4.Daemon()
+    uri = daemon.register(atm)
+    ns = Pyro4.locateNS()
+    ns.register("atm", uri)
+
+
+    print("ATM server ready.")
+    daemon.requestLoop()
+
+except Exception as e:
+    print(e)
