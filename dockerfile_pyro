@@ -1,7 +1,5 @@
 FROM python:3.9
 
-ADD Servidor.py .
-
 RUN pip install Pyro4
 
 EXPOSE 9090
