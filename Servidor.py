@@ -2,7 +2,6 @@ import psycopg2
 import Pyro4
 import random
 import subprocess
-import socket
 
 subprocess.Popen(['pyro4-ns'])
 
@@ -181,19 +180,10 @@ atm = ATM()
 
 try:
 
-    # daemon = Pyro4.Daemon()
-    # uri = daemon.register(atm)
-    # ns = Pyro4.locateNS()
-    # ns.register("atm", uri)
-    ip_address = socket.gethostbyname(socket.gethostname())
-    
-    # Registrar el objeto remoto con el servidor de nombres Pyro4
-    daemon = Pyro4.Daemon(host=ip_address)
-    atm = ATM()
+    daemon = Pyro4.Daemon()
     uri = daemon.register(atm)
-
-    # Imprimir la URI del objeto remoto
-    print("URI:", uri)
+    ns = Pyro4.locateNS()
+    ns.register("atm", uri)
 
 
     print("ATM server ready.")
