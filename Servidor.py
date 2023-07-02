@@ -13,7 +13,7 @@ class ATM:
         conn = psycopg2.connect(
                 database="postgres",
                 user="postgres", 
-                password="admin", 
+                password="romero-vieira", 
                 host="localhost",
                 options=f"-c search_path=public")
         cur = conn.cursor()
