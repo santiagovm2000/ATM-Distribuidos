@@ -9,4 +9,4 @@ RUN pip install psycopg2 Pyro4
 EXPOSE 9090
 
 # Ejecutar el servidor Pyro4 al iniciar el contenedor
-CMD ["sh", "-c", "pyro4-ns -n 127.0.0.1 -p 9091 & python3 Servidor.py"]
+CMD ["sh", "-c", "python3 -u Servidor.py > servidor.log 2>&1"]
