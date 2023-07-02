@@ -1,0 +1,9 @@
+FROM python:3.9
+
+ADD Cliente.py .
+
+# Instalar las dependencias necesarias
+RUN pip install Pyro4
+
+# Ejecutar el servidor Pyro4 al iniciar el contenedor
+CMD ["python", "Cliente.py"]
