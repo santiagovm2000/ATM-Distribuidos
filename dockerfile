@@ -1,6 +1,6 @@
 FROM python:3.9
 
-ADD Server.py .
+ADD Servidor.py .
 
 # Instalar las dependencias necesarias
 RUN pip install psycopg2 Pyro4
