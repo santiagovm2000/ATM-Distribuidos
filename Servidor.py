@@ -180,7 +180,7 @@ atm = ATM()
 
 try:
 
-    daemon = Pyro4.Daemon()
+    daemon = Pyro4.Daemon(host="0.0.0.0")
     uri = daemon.register(atm)
     ns = Pyro4.locateNS()
     ns.register("atm", uri)
