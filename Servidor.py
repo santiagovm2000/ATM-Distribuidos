@@ -13,7 +13,7 @@ class ATM:
         conn = psycopg2.connect(
                 database="postgres",
                 user="postgres", 
-                password="romero-vieira", 
+                password="admin", 
                 host="localhost",
                 port=5432,
                 options=f"-c search_path=public")
@@ -186,7 +186,7 @@ try:
     ns.register("atm", uri)
 
 
-    print("ATM server ready.")
+    print("Servidor ATM funcionando.")
     daemon.requestLoop()
 
 except Exception as e:
